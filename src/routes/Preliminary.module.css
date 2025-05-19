@@ -1,0 +1,372 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    text-align: center;
+    padding-top: 50px;
+  }
+  .header h1 {
+    color: white;
+    font-size: 1rem;
+  }
+  .box{
+    width: 80%;
+    margin: 20px auto;
+    padding: 1.2rem;
+    border-radius: 10px;
+    background-color: rgb(50,50,50);
+  }
+  .box p {
+    text-align: center;
+    color: white;
+    font-size: 0.67rem;
+  }
+  .speechBubble {
+    display: flex;
+    width: 85%;
+    height: 5rem;
+    margin: 30px 10px;
+    padding: 10px;
+    align-items: center;
+    position: relative;
+    background: white;
+    border-radius: 3em;
+    font-size: 0.8rem;
+    box-shadow: 0 8px 10px 0.001px rgba(127, 255, 212,0.4);
+  }
+  .speechBubble p {
+    padding: 10px;
+    margin-top: 0.5rem;
+  }
+  
+  .speechBubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: white;
+    border-bottom: 0;
+    border-left: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+  }
+  .speechBubble.right:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 90%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: white;
+    border-bottom: 0;
+    border-right: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+  }
+  .bottom {
+    margin-top: 90px;
+  }
+  .preh1 {
+    color: white;
+    text-align: center;
+    font-weight: 1000;
+  }
+  .preh2{
+    color: white;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  .bottom p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .outbox{
+    width: 90%;
+    height: 8rem;
+    margin: 45px auto;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: white;
+  }
+  .outbox p {
+    margin-top: 12px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: small;
+    font-weight: bold;
+  }
+  .imglist{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin:25px 0;
+  }
+  .circle {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    width : 200px;
+    height : 200px;
+    border-radius: 50%;
+    background: linear-gradient(to bottom,rgba(95,95,95,1) 0%,rgba(30,30,30,1) 80%);
+    font-weight: bold;
+    color: white;
+  
+  }
+  .circle p {
+    position: absolute;
+    top: 4rem;
+    align-items: center;
+  }
+  .circle p p {
+    color:white;
+    position: absolute;
+    left: -6.5rem;
+    top:1.2rem;
+  }
+  .circle h3 {
+    position: absolute;
+    width: 100%;
+    transform: translateY(30%);
+    bottom: 0;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+  }
+  .middle {
+    display: block;
+    text-align: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding-bottom: 30%;
+    background-color: rgb(22, 17, 17);
+  }
+  .button {
+    all: none;
+    margin: 0 auto;
+    color: white;
+    border-radius: 50px;
+    border: 0 solid;
+    box-shadow: 0 8px 10px 0.001px rgba(53,208,186,0.4);
+    background-color: rgb(53, 208, 186);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 130px;
+    height: 30px;
+  }
+  .dotline {
+    margin-left: 50%;
+    margin-top: 30px;
+    margin-bottom: 0;
+    border-left : medium dashed rgb(95,95,95);
+    height : 80px;
+    
+  }
+  .modalContainer {
+    background-color: white;
+    margin: 20px auto;
+    width: 70%;
+    height: auto;
+    text-align: left;
+    padding: 15px;
+  }
+}
+.main {
+  width: 100vw;
+  height: 200vh;
+  padding-top: 10px;
+  background-color: rgb(22, 17, 17);
+}
+.header {
+  text-align: center;
+  padding-top: 50px;
+}
+.header h1 {
+  color: white;
+  font-size: 1rem;
+}
+.box{
+  width: 80%;
+  margin: 20px auto;
+  padding: 1.2rem;
+  border-radius: 10px;
+  background-color: rgb(50,50,50);
+}
+.box p {
+  text-align: center;
+  color: white;
+  font-size: 0.67rem;
+}
+.speechBubble {
+  display: flex;
+  width: 85%;
+  height: 5rem;
+  margin: 30px 10px;
+  padding: 10px;
+  align-items: center;
+  position: relative;
+  background: white;
+  border-radius: 3em;
+  font-size: 0.8rem;
+  box-shadow: 0 8px 10px 0.001px rgba(127, 255, 212,0.4);
+}
+.speechBubble p {
+  padding: 10px;
+  margin-top: 0.5rem;
+}
+
+.speechBubble:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: white;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}
+.speechBubble.right:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 90%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-top-color: white;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}
+.bottom {
+  margin-top: 90px;
+}
+.preh1 {
+  color: white;
+  text-align: center;
+  font-weight: 1000;
+}
+.preh2{
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.bottom p {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.outbox{
+  width: 90%;
+  height: 8rem;
+  margin: 45px auto;
+  border-radius: 20px;
+  border: 2px solid;
+  border-color: white;
+}
+.outbox p {
+  margin-top: 12px;
+  padding-left: 10px;
+  text-align: left;
+  font-size: small;
+  font-weight: bold;
+}
+.imglist{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin:25px 0;
+}
+.circle {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin: 0 auto;
+  width : 200px;
+  height : 200px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom,rgba(95,95,95,1) 0%,rgba(30,30,30,1) 80%);
+  font-weight: bold;
+  color: white;
+
+}
+.circle p {
+  position: absolute;
+  top: 4rem;
+  align-items: center;
+}
+.circle p p {
+  color:white;
+  position: absolute;
+  left: -6.5rem;
+  top:1.2rem;
+}
+.circle h3 {
+  position: absolute;
+  width: 100%;
+  transform: translateY(30%);
+  bottom: 0;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+.middle {
+  display: block;
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+  padding-bottom: 30%;
+  background-color: rgb(22, 17, 17);
+}
+.button {
+  all: none;
+  margin: 0 auto;
+  color: white;
+  border-radius: 50px;
+  border: 0 solid;
+  box-shadow: 0 8px 10px 0.001px rgba(53,208,186,0.4);
+  background-color: rgb(53, 208, 186);
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 130px;
+  height: 30px;
+}
+.dotline {
+  margin-left: 50%;
+  margin-top: 30px;
+  margin-bottom: 0;
+  border-left : medium dashed rgb(95,95,95);
+  height : 80px;
+  
+}
+.modalContainer {
+  background-color: white;
+  margin: 20px auto;
+  width: 70%;
+  height: auto;
+  text-align: left;
+  padding: 15px;
+}

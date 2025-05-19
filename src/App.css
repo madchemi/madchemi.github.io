@@ -1,0 +1,309 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@media screen and (max-width: 991px) {
+  .navbar-nav .nav-link {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px; 
+    margin-bottom: 8px;
+  }
+  .navbar-brand {
+    margin-left: 0;
+  }
+  .bottom {
+    font-size: small;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bottom {
+    flex-direction: column;
+    font-size: small;
+  }
+}
+@media screen and (max-width: 1360px) {
+  .bottom {
+    flex-direction: column;
+    font-size: small;
+  }
+}
+
+.App {
+  background-color: white;
+  letter-spacing: -0.8px;
+  font-family: 'Pretendard-Regular';
+}
+.header {
+  margin-bottom: 25px;
+}
+h1 {
+  color: black; 
+}
+.alert-bar {
+  display: block;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 173, 30);
+}
+.alert-bar p {
+  margin: 0 30px;
+  top: 17px;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  position: absolute;
+  color: aliceblue;
+  text-align: left;
+}
+.main-card{
+  min-width: 525px;
+  min-height: 290px;
+  margin-right: 15px;
+  height: auto;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.main-card .card-title {
+  font-size: xx-large;
+  font-weight: bold;
+  text-align: left;
+}
+.main-card .card-text {
+  padding: 20px;
+  font-size: large;
+  text-align: left;
+}
+.card-img-overlay {
+  padding: 50px;
+}
+
+.slide {
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding-left: 20px;
+  gap: 15px;
+}
+.slide-track {
+  display: flex;
+  justify-content: left;
+  overflow: hidden;
+}
+.slide-card {
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide .next{
+  position: relative;
+  width: 7vw;
+  min-width: 116px;
+  border-radius: 30px;
+  background-color: rgb(255,245,230);
+  overflow: visible;
+}
+.slide button{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 5em;
+  float: right;
+  background-color: #7e7f80cb;
+}
+.slide .arrow-bt{
+  display: flex;
+  bottom: 45%;
+  right: -2em;
+  align-items: center;
+  height: 1.4em;
+  width: 1.4em;
+  outline: #ddd solid 1px;
+  padding: 20px;
+  border-radius: 100px;
+  background-color: white;
+  color: black;
+}
+.slide .arrow-bt:focus {
+  outline: #ddd solid 1px;
+}
+.navbar {
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  padding: 20px 0;
+  background-color: white;
+  font-weight: bold;
+}
+.navbar-collapse {
+  padding-left: 2em;
+  background-color: white;
+}
+.navbar-brand {
+  margin-left: 50px;
+}
+.navbar form input {
+  width: 13em;
+  font-size: 80%;
+}
+.nav-link.active {
+  color: orange !important;
+}
+.search {
+  font-size: 0.8rem;
+  width: 250px;
+}
+.cost {
+  display: inline;
+  font-size: 1.5rem;
+  line-height: 3.2rem;
+}
+.option::before{
+  content: "";
+  position: relative;
+  display: block;
+  top: 40px;
+  left: -16px;
+  width: 4px;
+  height: 16px;
+  background-color: #485870;
+}
+.content {
+  display: block;
+  position: relative;
+  top: 57px;
+}
+
+.start {
+  opacity: 0;
+}
+.end {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.main-bg {
+  position: relative;
+  display: block;
+  width: 100vw;
+  min-width: 900px;
+  height: 500px;
+  /* background-image: url('./img/bg.png'); */
+  background-size: cover;
+  background-position: center;
+  transition: width 0.5s;
+}
+.scroll {
+  position: relative;
+  overflow: hidden;
+}
+.curriculum .card{
+  display: block;
+  flex-direction: column;
+  padding: 10px;
+  width: 13vw;
+  min-width: 275px;
+  background-color: rgba(0, 0, 0, 0.05);
+  position: relative;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden; 
+}
+.curriculum .card-img{
+  display: block;
+  margin: 1em auto;
+  align-self: center;
+  box-shadow: 10px 10px 0 0px #ddd;
+  width: 80%;
+}
+.curriculum .card-title{
+  text-align: left;
+  font-size: x-large;
+}
+.form-section {
+  text-align: left;
+  margin: 30px;
+}
+.form-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.form-section h2::before {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.form-section label {
+  display: block;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+.form-section input[type=\"text\"], 
+.form-section input[type=\"number\"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.form-section input[type=\"radio\"]{
+  display: inline;
+}
+.form-section textarea {
+  width: 100%;
+  height: 100px;
+  padding: 5px;
+}
+.mint {
+  color: rgb(53, 208, 186);
+}
+.orange{
+  color: rgb(255,173,30);
+}
+.sub-content{
+  color: rgba(128, 128, 128, 0.5);
+}
+.inner{
+  width: 90vw;
+  margin: 30px auto;
+}
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 5% 80px 5% ;
+}
+.ask{
+  text-align: left;
+  line-height: 2rem;
+}
+.ask button{
+  background-color: #dddddd88;
+  padding: 0.6em 0.9em;
+  border-radius: 5px;
+  font-weight: bold;
+}
+td {
+  padding: 0.6em;
+}
+.detail {
+  width: 90%;
+  margin: 70px auto;
+}
+.detail-card{
+  width: 29vw;
+  height: auto;
+  object-fit: cover;
+}
+.detail-card img{
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.webcam {
+  position: absolute;
+  width: 50%;
+  margin-left: auto;
+  right: 10px;
+}
