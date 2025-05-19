@@ -2,7 +2,7 @@
   "name": "aible-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://madchem.github.io",
+  "homepage": "https://madchemi.github.io",
   "dependencies": {
     "@mediapipe/camera_utils": "^0.3.1675466862",
     "@mediapipe/drawing_utils": "^0.3.1675466124",
