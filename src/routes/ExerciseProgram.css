@@ -1,0 +1,141 @@
+/* ExerciseProgram.css */
+.exercise-program-container {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+    width: 100%;
+    max-width: 480px; /* 모바일 화면에 적합한 최대 너비 */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 20px auto; /* 페이지 내에서 자체적으로 중앙 정렬 (예시) */
+}
+
+.ep-header {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ep-header h1 { /* 직접 참조될 h1 요소 */
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 0;
+    color: #212529;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.ep-header span { /* 직접 참조될 span 요소 */
+    font-size: 0.9em;
+    color: #6c757d;
+    min-width: 60px;
+    text-align: right;
+}
+
+.ep-main-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ep-media-area {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.ep-media-area img { /* 직접 참조될 img 요소 */
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #e0e0e0;
+}
+
+.ep-info-area {
+    text-align: center;
+    width: 100%;
+}
+
+.ep-info-area .ep-timer { /* 클래스로 참조 */
+    font-size: 3em;
+    font-weight: bold;
+    color: #08A689; /* Teal 강조색 */
+    margin: 10px 0;
+}
+
+.ep-info-area .ep-instructions { /* 클래스로 참조 */
+    font-size: 0.95em;
+    color: #495057;
+    line-height: 1.5;
+    margin-top: 10px;
+    padding: 0 10px;
+}
+
+.ep-controls {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.ep-button {
+    padding: 12px 15px;
+    font-size: 1em;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    flex-grow: 1;
+    min-width: 100px;
+}
+
+.ep-button:hover {
+    opacity: 0.9;
+}
+
+.ep-button-primary {
+    background-color: #08A689;
+    color: white;
+}
+.ep-button-primary:hover {
+    background-color: #067D68;
+}
+.ep-button-primary:active {
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.ep-button-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+.ep-button-secondary:hover {
+    background-color: #5a6268;
+}
+
+.ep-button-danger {
+    background-color: #dc3545;
+    color: white;
+}
+.ep-button-danger:hover {
+    background-color: #c82333;
+}
+
+.ep-button:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+    opacity: 0.7;
+}

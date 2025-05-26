@@ -1,0 +1,142 @@
+/* src/routes/ExerciseDetailPage.css */
+/* 이 파일은 ExerciseDetailPage.js를 위한 스타일입니다. */
+/* MyRehabProgramPage.css와 유사한 스타일이 많다면 공통 CSS로 분리하는 것을 고려하세요. */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css'); /* 부트스트랩 아이콘 */
+
+.exercise-detail-page {
+  font-family: 'Pretendard', sans-serif; /* 일관된 폰트 적용 (Pretendard 폰트가 로드되어 있다고 가정) */
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  background-color: #f4f7f6; /* 페이지 배경색 */
+}
+
+.exercise-detail-page .breadcrumb {
+  background-color: transparent;
+  padding-left: 0;
+}
+
+.exercise-detail-page .exercise-main-title {
+  color: #333;
+  font-weight: 700;
+  border-bottom: 2px solid #007bff; /* 제목 하단 강조선 */
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* 강도 선택 카드 */
+.exercise-detail-page .intensity-selection-card .card-header {
+  background-color: #e9ecef;
+  font-weight: 500;
+}
+.exercise-detail-page .intensity-btn {
+  font-size: 1.1rem;
+  min-width: 120px; /* 버튼 최소 너비 */
+}
+
+/* 미디어 (비디오/이미지) 영역 */
+.exercise-detail-page .video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  position: relative;
+  height: 0;
+  border-radius: 0.5rem; /* 모서리 둥글게 */
+}
+.exercise-detail-page .video-responsive iframe,
+.exercise-detail-page .youtube-player-iframe { /* YouTube 컴포넌트가 iframe을 생성하므로 */
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: none; /* iframe 테두리 제거 */
+}
+.exercise-detail-page .exercise-main-image {
+  max-height: 450px; /* 이미지 최대 높이 */
+  object-fit: contain; /* 이미지가 잘리지 않도록 */
+  width: 100%;
+  border-radius: 0.5rem; /* 이미지에도 모서리 둥글게 적용 */
+}
+
+/* 웹캠 컨테이너 */
+.exercise-detail-page .webcam-container {
+  /* JavaScript에서 position: relative, mx-auto, maxWidth: '640px' 등이 설정됨 */
+  /* background-color: #f0f0f0; /* JS에서 bg-light 로 설정됨 */
+}
+
+/* 웹캠 피드 (숨겨진 <video> 태그) - MediaPipe 입력용 */
+.exercise-detail-page .webcam-feed {
+  width: 100%;
+  max-width: 640px; /* JS에서 부모 컨테이너에 설정된 maxWidth와 일치시킴 */
+  height: auto;
+  border-radius: 0.25rem; /* JS의 canvas 인라인 스타일과 일치 */
+  display: block; /* <video> 태그의 기본 동작과 유사하게 */
+  margin: 0 auto; /* JS에서 부모가 mx-auto로 중앙 정렬되므로, 이것은 큰 영향 없음 */
+}
+
+/* 웹캠 오버레이 (<canvas> 태그) - 사용자에게 보여지는 부분 */
+.exercise-detail-page .webcam-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width, height, aspectRatio, borderRadius는 
+     ExerciseDetailPage.js의 <canvas> 인라인 스타일 및 JS 로직으로 제어됩니다.
+     CSS에서는 기본적인 절대 위치만 지정합니다. */
+}
+
+
+/* 운동 단계 카드 */
+.exercise-detail-page .exercise-steps-card .card-header,
+.exercise-detail-page .exercise-progress-card .card-header {
+  font-weight: 500;
+}
+.exercise-detail-page .instruction-step {
+  font-size: 0.95rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.exercise-detail-page .instruction-step .step-number { /* 이 클래스는 현재 JS에서 사용되지 않음, Badge 사용 중 */
+  font-weight: bold;
+}
+
+/* 진행 상황 카드 */
+.exercise-detail-page .exercise-progress-card h4,
+.exercise-detail-page .exercise-progress-card h5 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.exercise-detail-page .reps-progress-bar,
+.exercise-detail-page .rest-progress-bar {
+  height: 25px !important; /* 부트스트랩 ProgressBar 높이 조절 */
+  font-size: 0.9rem; /* ProgressBar 내부 텍스트 크기 */
+}
+.exercise-detail-page .feedback-alert { /* JS에서 Alert 컴포넌트에 적용될 수 있는 스타일 */
+  font-size: 0.95rem;
+  /* min-height: 40px; /* 피드백 메시지 영역 높이 확보 - Alert 컴포넌트 패딩으로 어느정도 확보됨 */
+}
+
+/* 버튼 스타일 */
+.exercise-detail-page .action-button i { /* 아이콘과 텍스트 간격 - JS에서 Bootstrap 'me-2' 클래스 사용 중 */
+  vertical-align: middle; /* 아이콘 수직 정렬 */
+}
+
+/* 완료 섹션 */
+.exercise-detail-page .finished-section h4 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* 로딩 스피너 (페이지 전체) */
+.page-loading-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* 뷰포트 높이만큼 */
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+.page-loading-spinner .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}

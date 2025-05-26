@@ -5,7 +5,7 @@
   font-size: 100%;
   font-family: "PT Sans", sans-serif;
   color: #505260;
-  background-color: #fff;
+  background-color: #f0f2f5; /* 전체 페이지 배경색 변경 */
 }
 
 .loginContainer *,
@@ -13,53 +13,81 @@
 .loginContainer *:before {
   box-sizing: border-box;
 }
-p {
+
+.loginContainer p { /* p 태그 기본 마진 조정 */
   position: relative;
+  margin-bottom: 1.2em; /* 단락 간격 조정 */
 }
-input[type=\"checkbox\"]{
-  display: inline !important;
+
+.loginContainer input[type="checkbox"] {
+  display: inline-block !important; /* inline-block으로 변경하여 label과 정렬 용이 */
+  margin-right: 8px;
+  vertical-align: middle;
 }
-a {
-  color: #2f889a;
+.loginContainer label {
+  vertical-align: middle;
+  font-size: 0.9em;
+}
+
+.loginContainer a {
+  color: #00A99D; /* 링크 색상 변경 (AiBLE 청록색 테마) */
   text-decoration: none;
 }
-.cdFormBottomMessage a {
-  color: #FFF !important;
+.loginContainer a:hover {
+  text-decoration: underline;
+}
+
+.cdFormBottomMessage a { /* 모달 하단 메시지 링크 스타일은 유지 또는 조정 */
+  color: #505260 !important; /* 흰색에서 어두운 색으로 변경 (흰색 배경 위이므로) */
   text-decoration: underline !important;
 }
-li {
+
+.cdUserModal .cdFormBottomMessage a { /* 모달 외부 하단 링크는 배경에 따라 흰색 유지 가능 */
+    color: #FFF !important;
+    text-decoration: underline !important;
+}
+
+
+.loginContainer li {
   list-style: none;
 }
 
-img {
+.loginContainer img {
   max-width: 100%;
 }
 
-input,
-textarea {
+.loginContainer input,
+.loginContainer textarea {
   font-family: "PT Sans", sans-serif;
   font-size: 16px;
 }
 
-header {
+/* header 스타일은 현재 유지 */
+.loginContainer header {
   position: relative;
   height: 50px;
   background: #343642;
 }
 
+/* --- 모달 위치 관련 수정 시작 --- */
 .cdUserModal {
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: rgba(52, 54, 66, 0.9);
-  z-index: 3;
-  overflow-y: auto;
+  z-index: 1000; /* z-index 상향 조정 */
+  /* overflow-y: auto;  Flexbox 중앙 정렬 시 불필요할 수 있음, 필요시 다시 활성화 */
   cursor: pointer;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 0.3s 0, visibility 0 0.3s;
+  visibility: hidden; /* 기본 숨김 */
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+
+  /* Flexbox를 사용하여 내부 컨테이너를 중앙 정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cdUserModal.isVisible {
@@ -70,97 +98,166 @@ header {
 .cdUserModalContainer {
   position: relative;
   width: 90%;
-  max-width: 600px;
+  max-width: 500px; /* 최대 너비 약간 줄임 */
   background: #fff;
-  margin: 3em auto 4em;
+  /* margin: 4em auto; /* Flexbox 중앙 정렬로 인해 이 margin은 더 이상 필요 없음 */
   cursor: auto;
-  border-radius: 0.25em;
-  transform: translateY(0px);
-  transition: transform 1s;
+  border-radius: 8px; /* 모서리 둥글게 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* 그림자 효과 강화 */
+  transform: translateY(-20px); /* 초기 위치 살짝 위로 */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  overflow-y: auto; /* 컨테이너 내용이 길어질 경우 스크롤바 표시 */
+  max-height: 90vh; /* 화면 높이의 90%를 넘지 않도록 설정 (스크롤바와 함께 사용) */
 }
-.cdUserModalContainer.animation{
-  transform: translateY(80px);
-}
+/* --- 모달 위치 관련 수정 끝 --- */
 
+
+.cdUserModal.isVisible .cdUserModalContainer {
+  transform: translateY(0); /* isVisible 시 제자리로 */
+}
 
 .cdSwitcher {
   display: flex;
-  justify-content: space-around;
-  background: #d2d8d8;
   padding: 0;
+  background: #f7f7f7; /* 탭 배경색 변경 */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .cdSwitcher li {
   width: 50%;
   text-align: center;
-  cursor: pointer;
 }
 
 .cdSwitcher a {
   display: block;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: 60px; /* 탭 높이 증가 */
+  line-height: 60px;
   color: #809191;
+  font-size: 1.1em; /* 탭 글씨 크기 증가 */
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+  text-decoration: none; /* 링크 밑줄 제거 */
 }
 
 .cdSwitcher a.selected {
   background: #fff;
-  color: #505260;
+  color: #00A99D; /* 선택된 탭 색상 변경 (AiBLE 청록색 테마) */
+  border-bottom: 2px solid #00A99D; /* 선택 표시 강화 (AiBLE 청록색 테마) */
 }
 
 .cdForm {
-  padding: 1.4em;
+  padding: 2em 2.5em; /* 폼 내부 패딩 증가 */
 }
 
-.cdForm input {
+.formGroup { /* p 태그 대신 사용할 div 래퍼 */
+  margin-bottom: 1.5em;
   position: relative;
-  display: inline;
+}
+
+.cdForm input[type="email"],
+.cdForm input[type="password"],
+.cdForm input[type="text"] {
+  display: block; /* block으로 변경 */
   width: 100%;
-  padding: 12px 20px;
-  border-radius: 0.25em;
-  border: 1px solid #d2d8d8;
+  padding: 14px 18px; /* 내부 패딩 조정 */
+  border-radius: 6px; /* 모서리 둥글게 */
+  border: 1px solid #ccd0d5;
+  background-color: #f5f6f7;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box; /* 패딩과 테두리가 너비에 포함되도록 */
 }
 
 .cdForm input:focus {
-  border-color: #343642;
-  box-shadow: 0 0 5px rgba(52, 54, 66, 0.1);
+  border-color: #00A99D; /* 포커스 시 테두리 색상 (AiBLE 청록색 테마) */
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 169, 157, 0.2); /* 포커스 시 박스 그림자 (AiBLE 청록색 테마) */
   outline: none;
 }
 
 .cdFormBottomMessage {
   text-align: center;
-  font-size: 14px;
-  margin-top: 90px;
+  font-size: 0.9em; /* 글씨 크기 조정 */
+  margin-top: 1.5em; /* 상단 마진 조정 */
 }
 
-.cdCloseForm {
+.cdCloseForm { /* 스타일 개선 */
   position: absolute;
-  top: -40px;
-  right: 0;
-  width: 40px;
-  height: 40px;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
   background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/cd-icon-close.svg") no-repeat center center;
+  background-size: 60%;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  z-index: 10; /* 다른 요소 위에 오도록 */
   cursor: pointer;
 }
-button {
-  all: unset;
+.cdCloseForm:hover {
+  opacity: 1;
 }
+
+
 .hidePassword {
   display: inline-block;
   position: absolute;
-  right: 0px;
+  right: 10px; /* 위치 조정 */
   top: 50%;
-  padding: 6px 15px;
-  border-left: 1px solid #d2d8d8;
-  bottom: auto;
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
+  padding: 8px 12px; /* 패딩 조정 */
+  border: none; /* 테두리 제거 */
+  background-color: transparent; /* 배경 투명 */
+  color: #505260; /* 색상 변경 */
   transform: translateY(-50%);
-  font-size: 14px;
   font-size: 0.875rem;
-  color: #343642;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.hidePassword:hover {
+  color: #00A99D; /* 호버 시 색상 (AiBLE 청록색 테마) */
 }
 
+/* 기본 버튼 리셋 및 커스텀 스타일 */
+.loginContainer button, /* Login.js에서 직접 button 태그를 사용하지 않으므로 이 선택자는 불필요할 수 있음 */
+.cdForm button[type="submit"] { /* form 내부의 submit 버튼에만 스타일 적용 */
+  all: unset; /* 기존 스타일 초기화 */
+  box-sizing: border-box; /* 패딩과 테두리가 너비에 포함되도록 */
+  display: block;
+  width: 100%;
+  background-color: #00A99D; /* 주 색상 (AiBLE 청록색 테마) */
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 6px;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  margin-top: 1em; /* 상단 마진 추가 */
+}
+
+/* .cdForm input[type="submit"] 스타일은 위에서 button[type="submit"]으로 통합 */
+
+
+.loginContainer button:hover,
+.cdForm button[type="submit"]:hover {
+  background-color: #00877A; /* 호버 시 약간 어둡게 (AiBLE 청록색 테마) */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.errorMessage {
+  color: #fa383e;
+  font-size: 0.85em;
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* 성공 메시지를 위한 스타일 (필요시 사용) */
+.successMessage {
+  color: #00A99D; /* AiBLE 청록색으로 변경 */
+  font-size: 0.85em;
+  margin-top: 5px;
+  text-align: left;
+}
